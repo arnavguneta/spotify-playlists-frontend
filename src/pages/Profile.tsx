@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
-export default function Profile() {
+const Profile = () => {
     const { user } = useContext(UserContext);
     return (
         <>
@@ -10,4 +10,6 @@ export default function Profile() {
                 <div>{user.display_name}</div>}
         </>
     );
-}
+};
+
+export default Profile;

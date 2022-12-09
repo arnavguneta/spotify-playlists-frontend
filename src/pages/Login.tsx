@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 
-export default function Login() {
+const Login = () => {
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
 
@@ -18,4 +18,6 @@ export default function Login() {
     return (
         <div>Login</div>
     );
-}
+};
+
+export default Login;
