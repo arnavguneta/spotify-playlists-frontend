@@ -5,6 +5,7 @@ import MenuBar from './components/MenuBar/MenuBar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
+import Playlists from './pages/Playlists';
 import Profile from './pages/Profile';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/playlists' element={<Playlists />} />
         <Route path='/login' element={<Login />} />
         <Route path='/logout' element={<Logout />} />
       </Routes>

@@ -6,7 +6,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
 
-  // TODO: if logged in redirect back to '/'
   useEffect(() => {
     if (user !== null) navigate('/', { replace: true });
     else {
