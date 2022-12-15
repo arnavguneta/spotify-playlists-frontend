@@ -3,8 +3,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(48, 48, 48);
-  color:rgb(218, 218, 218);
+  /* background-color: #1a1919; */
+  background: rgb(42,38,38);
+  background: linear-gradient(42deg, rgba(42,38,38,1) 0%, rgba(46,43,43,1) 84%, rgba(48,48,48,1) 100%);
+  color: rgb(218, 218, 218);
   height: 100%;
   overflow-x: hidden;
 }
@@ -18,4 +20,5 @@ code {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
   text-underline-offset: 0.5rem;
+  color: #fff !important;
 }

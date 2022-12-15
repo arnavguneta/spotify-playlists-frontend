@@ -12,7 +12,7 @@ const Profile = () => {
 
   return (
     <>
-      <div>Profile</div>
+      <div>Placeholder Profile Content</div>
       {user !== null &&
         <div>{user.display_name}</div>}
     </>
