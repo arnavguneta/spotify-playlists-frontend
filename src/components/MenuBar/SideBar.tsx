@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
@@ -8,7 +6,6 @@ import styles from './SideBar.module.css';
 
 const SideBar = () => {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -27,13 +24,6 @@ const SideBar = () => {
           <div className={styles.navList}>
             <ul className={`${styles.navItems} ${styles.navItemsFont}`}>
               <li><NavLink to='/profile'>Profile</NavLink></li>
-              <button className={`${styles.mainBtn} ${styles.navItemsFont}`}>
-                {
-                  user === null && <NavLink to='/login'>Login</NavLink>
-                  || <NavLink to='/logout'>Logout</NavLink>
-                  // TODO: render user component instead of logout link
-                }
-              </button>
             </ul>
           </div>
         </nav>
