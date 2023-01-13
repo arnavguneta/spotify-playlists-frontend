@@ -26,7 +26,7 @@ const Home = () => {
             <div className={styles.login}>
               <button id={styles.loginBtn} className={styles.inputs}>
                 <NavLink to='/login'>
-                  <img src="/images/logo/spotify-white.png" alt="logo" />
+                  <img src="./images/logo/spotify-white.png" alt="logo" />
                   Login with Spotify
                 </NavLink>
               </button>

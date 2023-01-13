@@ -33,7 +33,7 @@ const SideBar = () => {
           navigate('/');
         }}>
           <div className={styles.logoImg}>
-            <img src='/images/logo/spotify.svg' />
+            <img src='./images/logo/spotify.svg' />
           </div>
           <div className={styles.logo}>
             <span>STATS</span>
