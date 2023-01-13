@@ -39,23 +39,23 @@ const SideBar = () => {
             <span>STATS</span>
           </div>
         </div>
-        <div className={styles.logoSeparator} />
-        <div className={styles.navContainer}>
-          <ul className={`${styles.navItems} ${styles.navItemsFont}`}>
-            <li>
-              <NavLink to='/'>
-                <HomeIcon className={styles.sidebarIcon} />
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/library'>
-                <LibraryMusicIcon className={styles.sidebarIcon} />
-                Library
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <div className={styles.separator} />
+
+        <ul className={`${styles.navItems} ${styles.navItemsFont}`}>
+          <li>
+            <NavLink to='/'>
+              <HomeIcon className={styles.sidebarIcon} />
+              <p>Home</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/library'>
+              <LibraryMusicIcon className={styles.sidebarIcon} />
+              <p>Library</p>
+            </NavLink>
+          </li>
+        </ul>
+        <div className={styles.separator} />
       </nav>
     </>
   );

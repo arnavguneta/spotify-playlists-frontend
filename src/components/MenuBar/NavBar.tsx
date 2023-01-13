@@ -5,14 +5,14 @@ import { UserContext } from '../../context/UserContext';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
-  const { user } = useContext(UserContext);
+  const userState = useContext(UserContext);
 
   return (
     <header>
       <nav className={styles.navbar}>
         <button className={`${styles.mainBtn} ${styles.navItemsFont}`}>
           {
-            user === null && <NavLink to='/login'>Login</NavLink>
+            !userState?.isAuth && <NavLink to='/login'>Login</NavLink>
             || <NavLink to='/logout'>Logout</NavLink>
             // TODO: render user component instead of logout link
           }

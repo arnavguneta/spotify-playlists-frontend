@@ -7,31 +7,48 @@ interface Props {
 }
 
 type UserContextValue = {
-  user: UserContextType | null,
-  setUser: Dispatch<SetStateAction<UserContextType | null>>
-  | null
+  user: UserContextType,
+  setUser: Dispatch<SetStateAction<UserContextType>>,
+  isAuth: boolean,
+  setAuth: Dispatch<SetStateAction<boolean>>
 };
 
-const userCtxDefault: UserContextValue = {
-  user: null,
-  setUser: null
+const defaultUser: UserContextType = {
+  country: '',
+  display_name: '',
+  email: '',
+  explicit_content: {},
+  external_urls: {},
+  followers: {},
+  href: '',
+  id: '',
+  images: [],
+  product: '',
+  type: '',
+  uri: ''
 };
 
-const UserContext = createContext<UserContextValue>(userCtxDefault);
+const UserContext = createContext<UserContextValue | null>(null);
 
 const UserContextProvider: React.FC<Props> = ({ children }) => {
-  const [user, setUser] = useState(userCtxDefault.user);
+  const [user, setUser] = useState(defaultUser);
+  const [isAuth, setAuth] = useState<boolean>(false);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND_API}/user`,
       { credentials: 'include' })
       .then((response) => response.json())
-      .then((result) => result.error === undefined && setUser(result))
+      .then((result) => {
+        if (result.error === undefined) {
+          setUser(result);
+          setAuth(true);
+        }
+      })
       .catch(() => console.log('Not logged in'));
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, isAuth, setAuth }}>
       {children}
     </UserContext.Provider>
   );

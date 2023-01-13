@@ -4,17 +4,17 @@ import { UserContext } from '../context/UserContext';
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const userState = useContext(UserContext);
 
   useEffect(() => {
-    if (user === null) navigate('/login?redirect=profile');
+    if (!userState?.isAuth) navigate('/login?redirect=profile');
   }, []);
 
   return (
     <>
       <div>Placeholder Profile Content</div>
-      {user !== null &&
-        <div>{user.display_name}</div>}
+      {userState?.isAuth &&
+        <div>{userState?.user.display_name}</div>}
     </>
   );
 };

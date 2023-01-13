@@ -1,15 +1,26 @@
 .app {
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .contentContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .mainContent {
-    margin: 1rem;
+  flex: 1;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 580px) {
+  .app {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
 }

@@ -1,21 +1,24 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
+import Spinner from '../components/Spinner/Spinner';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const userState = useContext(UserContext);
 
   useEffect(() => {
-    if (user !== null) navigate('/', { replace: true });
+    if (userState?.isAuth) navigate('/', { replace: true });
     else {
-      window.location.replace(
-        `${process.env.REACT_APP_BACKEND_API}/auth/login`
-      );
+      setTimeout(() => {
+        window.location.replace(
+          `${process.env.REACT_APP_BACKEND_API}/auth/login`
+        );
+      }, 200);
     }
   }, []);
   return (
-    <div>Login</div>
+    <Spinner />
   );
 };
 
