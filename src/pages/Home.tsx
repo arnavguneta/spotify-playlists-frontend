@@ -1,13 +1,20 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 import styles from './Home.module.css';
+import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   const [playlistLink, setPlaylistLink] = useState('');
   const userState = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const onPlaylistSubmit = (event: any) => {
-    return event.preventDefault();
+  const onPlaylistSubmit = (e: React.SyntheticEvent) => {
+    return e.preventDefault();
+  };
+
+  const onLoginClick = () => {
+    return navigate('/login?redirect=home');
   };
 
   return (
@@ -16,25 +23,35 @@ const Home = () => {
         &&
         <div className={styles.welcomeMain}>
           <div className={`${styles.section}`}>
-            <h1 className={styles.heading}>Analyze Your Spotify Playlists</h1>
+            <h1 id={styles.heading}>Analyze Your Spotify Playlists</h1>
             <p className={`${styles.heading} ${styles.sub}`}>
               View details and statistics about any playlist
             </p>
           </div>
-          <div className={`${styles.section}`}>
-            <div className={styles.listSearch}>
-              <form onSubmit={onPlaylistSubmit} id={styles.idForm}>
-                <input type="text" value={playlistLink}
-                  placeholder='Paste a Spotify playlist link'
-                  onChange={(e) => setPlaylistLink(e.target.value)} />
-                <input type="submit" value="Analyze" />
-              </form>
-            </div>
-            <div className={styles.separator}>
-
-            </div>
+          <div className={`${styles.section}`} id={styles.inputSection}>
             <div className={styles.login}>
-
+              <button id={styles.loginBtn} className={styles.inputs}>
+                <NavLink to='/login'>
+                  <img src="/images/logo/spotify-white.png" alt="logo" />
+                  Login with Spotify
+                </NavLink>
+              </button>
+            </div>
+            <div id={styles.separatorContainer}>
+              <div className={styles.separator} />
+              <p>OR</p>
+              <div className={styles.separator} />
+            </div>
+            <div className={styles.linkSearch}>
+              <form onSubmit={onPlaylistSubmit} id={styles.idForm}>
+                <input id={styles.linkInput} className={styles.inputs}
+                  type="text" value={playlistLink} autoComplete='off'
+                  placeholder='Paste a Spotify playlist link' required
+                  onChange={(e) => setPlaylistLink(e.target.value)}
+                />
+                <input id={styles.submit} className={styles.inputs}
+                  type="submit" value="Analyze" />
+              </form>
             </div>
           </div>
         </div>
