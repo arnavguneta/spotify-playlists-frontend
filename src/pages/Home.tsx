@@ -1,20 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext';
 import styles from './Home.module.css';
-import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   const [playlistLink, setPlaylistLink] = useState('');
   const userState = useContext(UserContext);
-  const navigate = useNavigate();
 
   const onPlaylistSubmit = (e: React.SyntheticEvent) => {
     return e.preventDefault();
-  };
-
-  const onLoginClick = () => {
-    return navigate('/login?redirect=home');
   };
 
   return (
