@@ -32,8 +32,8 @@ const Home = () => {
                   placeholder='Paste a Spotify playlist link' required
                   onChange={(e) => setPlaylistLink(e.target.value)}
                 />
-                <input id={styles.submit} className={styles.inputs}
-                  type="submit" value="Analyze" />
+                <button id={styles.submit} className={styles.inputs}
+                  type="submit">Analyze</button>
               </form>
             </div>
             <div id={styles.separatorContainer}>
@@ -44,7 +44,8 @@ const Home = () => {
             <div className={styles.login}>
               <button id={styles.loginBtn} className={styles.inputs}>
                 <NavLink to='/login'>
-                  <img src="./images/logo/spotify-white.png" alt="logo" />
+                  {/* eslint-disable-next-line max-len */}
+                  <img alt="logo" src={`${process.env.REACT_APP_ASSETS || ''}/images/logo/spotify-white.png`} />
                   Login with Spotify
                 </NavLink>
               </button>
@@ -56,5 +57,4 @@ const Home = () => {
     </>
   );
 };
-
 export default Home;

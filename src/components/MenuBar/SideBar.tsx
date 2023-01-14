@@ -9,31 +9,13 @@ const SideBar = () => {
 
   return (
     <>
-      {/* <header>
-        <nav className={styles.navbar}>
-          <div className={styles.logoContainer} onClick={() => {
-            navigate('/');
-          }}>
-            <div className={styles.logoImg}>
-              <img src='/images/logo/spotify.svg' />
-            </div>
-            <div className={styles.logo}>
-              <span>STATS</span>
-            </div>
-          </div>
-          <div className={styles.navList}>
-            <ul className={`${styles.navItems} ${styles.navItemsFont}`}>
-              <li><NavLink to='/profile'>Profile</NavLink></li>
-            </ul>
-          </div>
-        </nav>
-      </header> */}
       <nav className={styles.sidebar}>
         <div className={styles.logoContainer} onClick={() => {
           navigate('/');
         }}>
           <div className={styles.logoImg}>
-            <img src='./images/logo/spotify.svg' />
+            {/* eslint-disable-next-line max-len */}
+            <img src={`${process.env.REACT_APP_ASSETS || ''}/images/logo/spotify.svg`} />
           </div>
           <div className={styles.logo}>
             <span>STATS</span>
