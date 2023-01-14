@@ -17,25 +17,14 @@ const Home = () => {
         &&
         <div className={styles.welcomeMain}>
           <div className={`${styles.section}`}>
-            <h1 id={styles.heading}>Analyze Your Spotify Playlists</h1>
-            <p className={`${styles.heading} ${styles.sub}`}>
+            <h1 className={styles.header} id={styles.heading}>
+              Analyze Your Spotify Playlists
+            </h1>
+            <p className={styles.header} id={styles.sub}>
               View details and statistics about any playlist
             </p>
           </div>
           <div className={`${styles.section}`} id={styles.inputSection}>
-            <div className={styles.login}>
-              <button id={styles.loginBtn} className={styles.inputs}>
-                <NavLink to='/login'>
-                  <img src="./images/logo/spotify-white.png" alt="logo" />
-                  Login with Spotify
-                </NavLink>
-              </button>
-            </div>
-            <div id={styles.separatorContainer}>
-              <div className={styles.separator} />
-              <p>OR</p>
-              <div className={styles.separator} />
-            </div>
             <div className={styles.linkSearch}>
               <form onSubmit={onPlaylistSubmit} id={styles.idForm}>
                 <input id={styles.linkInput} className={styles.inputs}
@@ -46,6 +35,19 @@ const Home = () => {
                 <input id={styles.submit} className={styles.inputs}
                   type="submit" value="Analyze" />
               </form>
+            </div>
+            <div id={styles.separatorContainer}>
+              <div className={styles.separator} />
+              <p>OR</p>
+              <div className={styles.separator} />
+            </div>
+            <div className={styles.login}>
+              <button id={styles.loginBtn} className={styles.inputs}>
+                <NavLink to='/login'>
+                  <img src="./images/logo/spotify-white.png" alt="logo" />
+                  Login with Spotify
+                </NavLink>
+              </button>
             </div>
           </div>
         </div>

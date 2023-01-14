@@ -13,13 +13,17 @@
   margin-bottom: 1rem;
 }
 
+.header {
+  text-align: center;
+}
+
 #heading {
   color: #fff;
   margin-bottom: 0.5rem;
   margin-top: 0;
 }
 
-.sub {
+#sub {
   font-weight: 100;
   font-style: italic;
   color: rgb(182, 182, 182);
@@ -56,26 +60,33 @@
   cursor: pointer;
 }
 
+#idForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 #separatorContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 #separatorContainer p {
-  margin: 1.25rem 0;
+  margin: 0 1.25rem;
 }
 
 .separator {
-  width: 1px;
-  height: 3rem;
+  width: 6rem;
+  height: 1px;
   background-color: rgb(53, 51, 51);
 }
 
 #inputSection {
   gap: 2rem;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 #loginBtn {
@@ -103,4 +114,14 @@
 #loginBtn:hover {
   background-color: #50bb75;
   cursor: pointer;
+}
+
+@media screen and (max-width: 430px) {
+  #idForm {
+    flex-direction: column;
+  }
+  #submit {
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
 }
