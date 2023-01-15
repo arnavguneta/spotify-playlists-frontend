@@ -2,9 +2,11 @@ import Spinner from '../components/Spinner/Spinner';
 import { useTimeout } from '../hooks/useTimeout';
 import { useRedirect } from '../hooks/useRedirect';
 import { useUserContext } from '../hooks/useUserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
   const userState = useUserContext();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     console.log('handlelogout');
@@ -13,6 +15,7 @@ const Logout = () => {
       .then(response => response.json())
       .then(() => {
         userState?.setAuth(false);
+        navigate('/');
       }).catch(err => console.log('Error logging out', err));
   };
 
