@@ -53,7 +53,7 @@ const Home = () => {
                   alt="logo" />
                 Login with Spotify
               </NavLink>
-              || <NavLink to='/Library'>
+              || <NavLink to='/library'>
                 <LibraryMusicIcon id={styles.libraryIcon} />
                 View Your Library
               </NavLink>
