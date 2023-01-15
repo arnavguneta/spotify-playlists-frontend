@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import SideBar from './components/MenuBar/SideBar';
@@ -12,15 +12,12 @@ import Library from './pages/Library';
 import Profile from './pages/Profile';
 
 import styles from './App.module.css';
+import { useTimeout } from './hooks/useTimeout';
 
 function App() {
   const [state, setState] = useState('loading');
 
-  useEffect(() => {
-    setTimeout(() => {
-      setState('base');
-    }, 600);
-  }, []);
+  useTimeout(50, () => setState('base'));
 
   return (
     <div className={styles.app}>

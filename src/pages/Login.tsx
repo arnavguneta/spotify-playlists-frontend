@@ -1,22 +1,16 @@
-import { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
 import Spinner from '../components/Spinner/Spinner';
+import { useTimeout } from '../hooks/useTimeout';
+import { useRedirect } from '../hooks/useRedirect';
+import { useUserContext } from '../hooks/useUserContext';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const userState = useContext(UserContext);
+  const userState = useUserContext();
 
-  useEffect(() => {
-    if (userState?.isAuth) navigate('/', { replace: true });
-    else {
-      setTimeout(() => {
-        window.location.replace(
-          `${process.env.REACT_APP_BACKEND_API}/auth/login`
-        );
-      }, 200);
-    }
-  }, []);
+  // redirect home if logged in
+  useRedirect(!!userState?.isAuth);
+  useTimeout(50, () => window.location.replace(
+    `${process.env.REACT_APP_BACKEND_API}/auth/login`));  
+  
   return (
     <Spinner />
   );

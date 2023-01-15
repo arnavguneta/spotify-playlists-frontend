@@ -3,6 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
 import styles from './SideBar.module.css';
+import { basename } from '../../utils/constants';
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -14,8 +15,7 @@ const SideBar = () => {
           navigate('/');
         }}>
           <div className={styles.logoImg}>
-            {/* eslint-disable-next-line max-len */}
-            <img src={`${process.env.REACT_APP_ASSETS || ''}/images/logo/spotify.svg`} />
+            <img src={`${basename}/images/logo/spotify.svg`} />
           </div>
           <div className={styles.logo}>
             <span>STATS</span>

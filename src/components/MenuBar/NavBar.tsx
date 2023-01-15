@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
 
 import styles from './NavBar.module.css';
+import { useUserContext } from '../../hooks/useUserContext';
 
 const NavBar = () => {
-  const userState = useContext(UserContext);
+  const userState = useUserContext();
 
   return (
     <header>

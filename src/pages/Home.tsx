@@ -1,11 +1,17 @@
-import React, { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
-import styles from './Home.module.css';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { basename } from '../utils/constants';
+import { useTitle } from '../hooks/useTitle';
+import { useUserContext } from '../hooks/useUserContext';
+
+import styles from './Home.module.css';
+
 const Home = () => {
+  useTitle('Spotify Stats | Home');
+
   const [playlistLink, setPlaylistLink] = useState('');
-  const userState = useContext(UserContext);
+  const userState = useUserContext();
 
   const onPlaylistSubmit = (e: React.SyntheticEvent) => {
     return e.preventDefault();
@@ -44,8 +50,8 @@ const Home = () => {
             <div className={styles.login}>
               <button id={styles.loginBtn} className={styles.inputs}>
                 <NavLink to='/login'>
-                  {/* eslint-disable-next-line max-len */}
-                  <img alt="logo" src={`${process.env.REACT_APP_ASSETS || ''}/images/logo/spotify-white.png`} />
+                  <img src={`${basename}/images/logo/spotify-white.png`}
+                    alt="logo" />
                   Login with Spotify
                 </NavLink>
               </button>

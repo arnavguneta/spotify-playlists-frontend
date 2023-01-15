@@ -10,11 +10,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/projects/spotify-app">
+    <BrowserRouter basename={process.env.REACT_APP_BASE}>
       <UserContextProvider>
         <App />
       </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
-// basename="/projects/spotify-app"

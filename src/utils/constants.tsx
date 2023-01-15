@@ -1,0 +1,1 @@
+export const basename = process.env.REACT_APP_BASE || '';

@@ -1,14 +1,12 @@
-import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
+import { useTitle } from '../hooks/useTitle';
+import { useRedirect } from '../hooks/useRedirect';
+import { useUserContext } from '../hooks/useUserContext';
 
 const Profile = () => {
-  const navigate = useNavigate();
-  const userState = useContext(UserContext);
+  const userState = useUserContext();
 
-  useEffect(() => {
-    if (!userState?.isAuth) navigate('/login?redirect=profile');
-  }, []);
+  useTitle('Spotify Stats | Library');
+  useRedirect(!userState?.isAuth, '/login?redirect=profile', false);
 
   return (
     <>
