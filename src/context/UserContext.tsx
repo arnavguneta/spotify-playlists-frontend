@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { Props, UserContext, UserContextValue } from '../utils/types';
+import { Props, UserContext, UserContextValue } from '../common/types';
 // import api from '../api/api';
 
 const defaultUser: UserContext = {

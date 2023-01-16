@@ -3,7 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
 import styles from './SideBar.module.css';
-import { basename } from '../../utils/constants';
+import { basename } from '../../../common/constants';
 
 const SideBar = () => {
   const navigate = useNavigate();

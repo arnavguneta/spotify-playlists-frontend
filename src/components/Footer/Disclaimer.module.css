@@ -1,0 +1,14 @@
+#disclaimer {
+  color: var(--secondary-text-color);
+  position: absolute;
+  bottom: 1rem;
+  margin-left: 1rem;
+  font-size: x-small;
+}
+
+@media screen and (max-width: 580px) {
+  #disclaimer {
+    bottom: 5.25rem;
+    margin-left: 0.25rem;
+  }
+}

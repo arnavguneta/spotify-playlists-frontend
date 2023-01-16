@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
-import { basename } from '../utils/constants';
+import { basename } from '../common/constants';
 import { useTitle } from '../hooks/useTitle';
 import { useUserContext } from '../hooks/useUserContext';
 import styles from './Home.module.css';
@@ -58,7 +58,6 @@ const Home = () => {
                 View Your Library
               </NavLink>
             }
-
           </button>
         </div>
       </div>

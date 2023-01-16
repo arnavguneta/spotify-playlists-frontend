@@ -26,8 +26,9 @@
 #sub {
   font-weight: 100;
   font-style: italic;
-  color: rgb(182, 182, 182);
+  color: var(--secondary-text-color);
   font-size: 1.25rem;
+  margin: 1.5rem 0;
 }
 
 .inputs {
@@ -45,18 +46,18 @@
 
 #linkInput:focus {
   outline: none !important;
-  border: 2.5px solid #1db954;
+  border: 2.5px solid var(--spotify-green);;
 }
 
 #submit {
   color: #fff;
-  border: 2.5px solid #1db954;
-  background-color: #1db954;
+  border: 2.5px solid var(--spotify-green);;
+  background-color: var(--spotify-green);
   margin-left: 0.75rem;
 }
 
 #submit:hover {
-  background-color: #50bb75;
+  background-color: var(--light-green);
   cursor: pointer;
 }
 
@@ -81,7 +82,7 @@
 .separator {
   width: 6rem;
   height: 1px;
-  background-color: rgb(53, 51, 51);
+  background-color: var(--sep-gray);
 }
 
 #inputSection {
@@ -90,7 +91,7 @@
 }
 
 #loginBtn {
-  background-color: #1db954;
+  background-color: var(--spotify-green);
   color: #fff;
   text-align: center;
   border: none;
@@ -112,7 +113,7 @@
 }
 
 #loginBtn:hover {
-  background-color: #50bb75;
+  background-color: var(--light-green);
   cursor: pointer;
 }
 

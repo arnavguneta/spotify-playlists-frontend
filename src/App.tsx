@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import SideBar from './components/MenuBar/SideBar';
-import NavBar from './components/MenuBar/NavBar';
+import SideBar from './components/MenuBar/SideBar/SideBar';
+import NavBar from './components/MenuBar/NavBar/NavBar';
 import Spinner from './components/Spinner/Spinner';
 
 import Home from './pages/Home';
@@ -13,6 +13,7 @@ import Profile from './pages/Profile';
 
 import styles from './App.module.css';
 import { useTimeout } from './hooks/useTimeout';
+import { Disclaimer } from './components/Footer/Disclaimer';
 
 function App() {
   const [state, setState] = useState('loading');
@@ -28,7 +29,7 @@ function App() {
           <SideBar />
           <div className={styles.contentContainer}>
             <NavBar />
-            <div className={styles.mainContent}>
+            <section className={styles.mainContent}>
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/profile' element={<Profile />} />
@@ -36,7 +37,8 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/logout' element={<Logout />} />
               </Routes>
-            </div>
+            </section>
+            <Disclaimer />
           </div>
         </>
       }

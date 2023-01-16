@@ -1,0 +1,103 @@
+.avatar {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  min-width: 30px;
+  background-size: 30px;
+  border-radius: 50%;
+}
+
+.profile {
+  animation: fadein 0.05s ease-out 1.5s forwards;
+}
+
+.profile {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--light-gray);
+  padding: 0.25rem 0.5rem;
+  border-radius: 1.5rem;
+}
+
+.profile:hover {
+  background-color: var(--dark-gray);
+}
+
+#username {
+  margin-inline-start: 10px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  font-weight: 700;
+}
+
+#dropdown-arrow {
+  margin-inline-start: 10px;
+  transition: transform 0.1s ease 0s;
+  width: 8px;
+  height: 12px;
+}
+
+.profile-dropdown {
+  background: var(--light-gray);
+  min-width: 125px;
+  box-shadow: rgb(0 0 0) 0px 1px 3px;
+  border-radius: 4px;
+  position: fixed;
+  top: 4rem;
+  right: 1.5rem;
+  z-index: 999;
+  outline: none;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.profile-dropdown a {
+  margin: 5px;
+}
+
+.profile-closed {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-1em);
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
+}
+
+.dropdown-active {
+  transform: rotate(180deg);
+}
+
+.profile-active {
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0s, z-index 0s linear 0.3s;
+}
+
+.profile-item:hover {
+  border-radius: 5px;
+  background-color: rgb(44, 46, 48);
+}
+
+.profile-item {
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  -webkit-box-align: center;
+  cursor: pointer;
+}
+
+.logout {
+  color: rgb(218, 64, 58);
+}
+
+@media screen and (max-width: 580px) {
+  #username {
+    display: none;
+  }
+}

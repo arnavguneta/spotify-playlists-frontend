@@ -4,11 +4,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #1a1919; */
-  background: rgb(42,38,38);
+  background: var(--main-bg-color);
   background: linear-gradient(42deg, rgba(42,38,38,1) 0%, rgba(46,43,43,1) 84%, rgba(48,48,48,1) 100%);
-  color: rgb(218, 218, 218);
+  color: var(--main-text-color);
   height: 100%;
-  overflow-x: hidden;
 }
 
 code {
@@ -21,4 +20,26 @@ code {
   text-decoration-thickness: 2px !important;
   text-underline-offset: 0.5rem;
   color: #fff !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+:root {
+  --main-bg-color: #2a2626;
+  --main-text-color: #dadada;
+  --secondary-text-color: #b6b6b6;
+  --spotify-green: #1db954;
+  --light-green: #50bb75;
+  --sep-gray: #353333;
+  --dark-gray: #191414;
+  --light-gray: #1d1d1d;
 }

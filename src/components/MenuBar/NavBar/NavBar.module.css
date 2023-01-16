@@ -19,13 +19,14 @@
     background-color: #fff;
     padding: 0.5rem 0.85rem;
     text-decoration: none;
-    color: rgb(48, 48, 48);
+    color: var(--dark-gray);
     border: none;
     border-radius: 10px;
 }
 
 .mainBtn:hover {
-    background-color: #1db954;
+    cursor: pointer;
+    background-color: var(--spotify-green);
     color: #fff;
 }
 

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Callback } from '../utils/types';
+import { Callback } from '../common/types';
 
 export function useTimeout(timeout: number, callback: Callback) {
   useEffect(() => {

@@ -9,7 +9,11 @@ export interface UserContext {
   followers: object,
   href: string,
   id: string,
-  images: object[],
+  images: Array<{
+    url: string,
+    height: number | undefined,
+    width: number | undefined,
+  }>,
   product: string,
   type: string,
   uri: string
