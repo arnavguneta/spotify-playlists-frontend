@@ -1,6 +1,6 @@
 #disclaimer {
   color: var(--secondary-text-color);
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
   margin-left: 1rem;
   font-size: x-small;
