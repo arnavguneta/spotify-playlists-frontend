@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 import styles from './AccountPill.module.css';
 import { NavLink } from 'react-router-dom';
-import { useUserContext } from '../../../hooks/useUserContext';
+import { useUserContext } from '../../../../hooks/useUserContext';
 
 export const AccountPill = () => {
   const [showProfile, setShowProfile] = useState(false);
   const userData = useUserContext();
-  console.log(userData);
+
   const toggleProfile = () => {
     setShowProfile(prevState => !prevState);
   };

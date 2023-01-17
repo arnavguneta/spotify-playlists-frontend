@@ -30,4 +30,8 @@ export interface UserContextValue {
   setAuth: Dispatch<SetStateAction<boolean>>
 }
 
+export interface MenuItems {
+  items: Array<string>
+}
+
 export type Callback = () => void;
