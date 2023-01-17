@@ -34,4 +34,10 @@ export interface MenuItems {
   items: Array<string>
 }
 
+export interface DropdownSettings extends MenuItems {
+  show: boolean,
+  toggle: () => void,
+  style?: object
+}
+
 export type Callback = () => void;

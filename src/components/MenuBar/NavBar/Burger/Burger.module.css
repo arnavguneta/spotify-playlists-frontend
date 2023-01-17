@@ -1,12 +1,17 @@
 #burgerContainer {
   display: none;
   cursor: pointer;
+  overflow-y: hidden;
+  padding: 0.5rem;
+  border-radius: .5rem;
 }
 
-@media screen and (max-width: 580px) {
-  #burgerContainer {
-    display: flex;
-  }
+#burgerContainer:hover {
+  background-color: var(--dark-gray);
+}
+
+#menu {
+  transform: scale(1.5);
 }
 
 .dropdown {
@@ -52,4 +57,10 @@
   color: var(--main-text-color);
   -webkit-box-align: center;
   cursor: pointer;
+}
+
+@media screen and (max-width: 580px) {
+  #burgerContainer {
+    display: flex;
+  }
 }

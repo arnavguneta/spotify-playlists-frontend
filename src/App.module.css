@@ -17,8 +17,8 @@
 }
 
 .mainContent {
-  flex: 1;
   margin: 1rem;
+  min-height: 90vh;
   /* display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -33,7 +33,7 @@
 
 @media screen and (max-width: 580px) {
   .contentContainer {
-    padding-bottom: 8rem;
+    /* padding-bottom: 8rem; */
     margin-left: 0rem;
   }
 }

@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
@@ -6,24 +6,21 @@ import styles from './SideBar.module.css';
 import { basename } from '../../../common/constants';
 
 const SideBar = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <nav className={styles.sidebar}>
         <div className={styles.menuWrapper}>
-          <div className={styles.logoContainer} onClick={() => {
-            navigate('/');
-          }}>
+          <div className={styles.logoContainer}>
             <div className={styles.logoImg}>
-              <img src={`${basename}/images/logo/spotify.svg`} />
+              <Link to='/'>
+                <img src={`${basename}/images/logo/spotify.svg`} />
+              </Link>
             </div>
             <div className={styles.logo}>
-              <span>STATS</span>
+              <Link to='/'><span>STATS</span></Link>
             </div>
           </div>
           <div className={styles.separator} />
-
           <ul className={`${styles.navItems} ${styles.navItemsFont}`}>
             <li>
               <NavLink to='/'>

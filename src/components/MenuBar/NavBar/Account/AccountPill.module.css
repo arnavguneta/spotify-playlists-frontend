@@ -43,57 +43,8 @@
   height: 12px;
 }
 
-.profile-dropdown {
-  background: var(--light-gray);
-  min-width: 125px;
-  box-shadow: rgb(0 0 0) 0px 1px 3px;
-  border-radius: 4px;
-  position: fixed;
-  top: 4rem;
-  right: 1.5rem;
-  z-index: 999;
-  outline: none;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-
-.profile-dropdown a {
-  margin: 5px;
-}
-
-.profile-closed {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-1em);
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
-}
-
 .dropdown-active {
   transform: rotate(180deg);
-}
-
-.profile-active {
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0s, z-index 0s linear 0.3s;
-}
-
-.profile-item:hover {
-  border-radius: 5px;
-  background-color: rgb(44, 46, 48);
-}
-
-.profile-item {
-  padding: 5px 12px;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--main-text-color);
-  -webkit-box-align: center;
-  cursor: pointer;
-}
-
-.logout {
-  color: rgb(218, 64, 58);
 }
 
 @media screen and (max-width: 580px) {

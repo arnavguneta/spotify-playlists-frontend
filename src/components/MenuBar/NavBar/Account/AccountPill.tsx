@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 import styles from './AccountPill.module.css';
-import { NavLink } from 'react-router-dom';
 import { useUserContext } from '../../../../hooks/useUserContext';
+import { MenuItems } from '../../../../common/types';
+import { Dropdown } from '../../../UI/Dropdown/Dropdown';
 
-export const AccountPill = () => {
+export const AccountPill = ({ items }: MenuItems) => {
   const [showProfile, setShowProfile] = useState(false);
   const userData = useUserContext();
 
@@ -25,19 +26,8 @@ export const AccountPill = () => {
         className={(showProfile) ? styles['dropdown-active'] : ''}>
         <path d="M0 0.75L5.5 6.25L11 0.75H0Z" fill="#F9F9F9"></path>
       </svg>
-      <ul className={
-        `${styles['profile-dropdown']} ${styles[`profile-${(showProfile) 
-          ? 'active' : 'closed'}`]}`
-      }>
-        <NavLink to="/profile">
-          <li className={styles['profile-item']}>Profile</li>
-        </NavLink>
-        <NavLink to="/logout">
-          <li className={`${styles['profile-item']} ${styles['logout']}`}>
-            Logout
-          </li>
-        </NavLink>
-      </ul>
+      <Dropdown items={items} show={showProfile} toggle={toggleProfile} 
+        style={{right: '1.5rem'}} />
     </div>
   );
 };
