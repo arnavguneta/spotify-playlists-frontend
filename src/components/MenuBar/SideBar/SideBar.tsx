@@ -42,20 +42,6 @@ const SideBar = () => {
         </div>
         <div className={styles.playlistWrapper}>
           <ul>
-            <li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-            <li>PL</li><li>PL</li><li>PL</li><li>PL</li><li>PL</li>
-
           </ul>
         </div>
       </nav>
