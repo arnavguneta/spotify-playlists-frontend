@@ -16,13 +16,13 @@ import { useTimeout } from './hooks/useTimeout';
 import { Disclaimer } from './components/Footer/Disclaimer';
 
 function App() {
-  const [state, setState] = useState('loading');
+  const [isLoading, setLoading] = useState(true);
 
-  useTimeout(50, () => setState('base'));
+  useTimeout(50, () => setLoading(false));
 
   return (
     <div className={styles.app}>
-      {state === 'loading' &&
+      {isLoading &&
         <Spinner />
         ||
         <>

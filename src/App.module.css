@@ -18,11 +18,12 @@
 
 .mainContent {
   margin: 1rem;
-  min-height: 90vh;
-  /* display: flex;
+  min-height: 100vh;
+  overflow-y: hidden;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: scroll; */
+  /* overflow-y: scroll; */
 }
 
 @media screen and (max-width: 700px) {
@@ -35,5 +36,9 @@
   .contentContainer {
     /* padding-bottom: 8rem; */
     margin-left: 0rem;
+  }
+  .mainContent {
+    min-height: 80vh;
+    margin-top: 5rem;
   }
 }
