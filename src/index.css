@@ -31,6 +31,7 @@ a {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  user-select: none;
 }
 
 :root {
@@ -42,4 +43,5 @@ a {
   --sep-gray: #353333;
   --dark-gray: #191414;
   --light-gray: #1d1d1d;
+  --hover-gray: #232425;
 }

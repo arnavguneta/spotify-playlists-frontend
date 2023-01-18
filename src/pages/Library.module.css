@@ -1,0 +1,75 @@
+.libraryContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
+.card {
+  background-color: var(--light-gray);
+  width: fit-content;
+  padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: var(--hover-gray);
+  opacity: 0.95;
+  transition: 0.2s;
+}
+
+.imgContainer {
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  /* box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);; */
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+    25px 0px 20px -20px rgba(0, 0, 0, 0.45),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.45),
+    -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
+}
+
+#cover {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info div {
+  width: 10rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#title {
+  color: #fff;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+#author {
+  margin-top: 0.75rem;
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+}
+
+.header {
+  margin: 0.25rem 0 0.5rem 1rem;
+}

@@ -54,7 +54,9 @@ export interface PlaylistItems {
     width: number
   }> | [],
   name: string,
-  owner: object,
+  owner: {
+    display_name: string
+  },
   public: boolean,
   snapshot_id: string,
   tracks: {

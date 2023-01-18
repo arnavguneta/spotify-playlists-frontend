@@ -30,7 +30,7 @@
 
 .item:hover {
   border-radius: 5px;
-  background-color: rgb(44, 46, 48);
+  background-color: var(--hover-gray);
 }
 
 .item {
