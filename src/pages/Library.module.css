@@ -58,7 +58,7 @@
 }
 
 .info div {
-  width: 10rem;
+  max-width: 10rem;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -102,5 +102,41 @@
 
 
 @media screen and (max-width: 700px) {
-  
+  .playlistsContainer {
+    flex-direction: column;
+  }
+  .card {
+    flex-direction: row;
+    padding: 1rem 1.25rem;
+    width: 80vw;
+  }
+  .card_items {
+    flex-grow: 1;
+    max-width: fit-content;
+    padding: 0.25rem;
+  }
+  #cover {
+    width: 80px;
+    height: 80px;
+  }
+  #title {
+    margin-top: 0;
+  }
+  .info {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .card {
+    flex-direction: row;
+    padding: 1rem 1.25rem;
+    width: 87vw;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .imgContainer {
+    display: none;
+  }
 }
