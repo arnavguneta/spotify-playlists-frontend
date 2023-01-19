@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  list-style: none;
 }
 
 .rounded {
@@ -15,13 +16,13 @@
 
 .card {
   background-color: var(--light-gray);
-  width: fit-content;
   padding: 1.5rem 1.25rem 2.5rem 1.25rem;
-  margin: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -31,19 +32,24 @@
 }
 
 .imgContainer {
-  width: 160px;
+  /* width: 160px;
   height: 160px;
-  overflow: hidden;
-  /* box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);; */
+  overflow: hidden; */
   box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
     25px 0px 20px -20px rgba(0, 0, 0, 0.45),
     0px 25px 20px -20px rgba(0, 0, 0, 0.45),
     -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  display: block;
 }
 
 #cover {
+  /* max-width: 100%;
+  max-height: 100%; */
+  height: auto;
   max-width: 100%;
-  max-height: 100%;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .info {
@@ -72,4 +78,29 @@
 
 .header {
   margin: 0.25rem 0 0.5rem 1rem;
+}
+
+.card_items {
+  max-width: 350px;
+  display: flex;
+  padding: 0.5rem;
+}
+
+@media (min-width: 700px) {
+  .card_items {
+    min-width: 225px;
+    width: 20%;
+  }
+}
+
+@media (min-width: 55rem) {
+  .card_items {
+    width: 12.5%;
+    min-width: 200px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  
 }

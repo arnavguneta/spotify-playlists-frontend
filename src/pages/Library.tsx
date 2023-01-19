@@ -38,28 +38,29 @@ const Library = () => {
           <h1 className={styles.header} id={styles.heading}>
             Library
           </h1>
-          <div className={styles.playlistsContainer}>
+          <ul className={styles.playlistsContainer}>
             {playlistsData?.map(playlist => {
               return (
-                <div key={playlist.id}
-                  className={`${styles.rounded} ${styles.card}`}>
-                  <div className={`${styles.rounded} ${styles.imgContainer}`}>
-                    <img src={playlist.images[0].url} id={styles.cover} />
-                  </div>
-                  <div className={`${styles.info}`}>
-                    <div id={styles.title} title={playlist.name}>
-                      {playlist.name}
+                <li key={playlist.id}
+                  className={styles.card_items}>
+                  <div className={`${styles.card} ${styles.rounded} `}>
+                    <div className={`${styles.rounded} ${styles.imgContainer}`}>
+                      <img src={playlist.images[0].url} id={styles.cover} />
                     </div>
-                    <div id={styles.author}
-                      title={playlist.owner?.display_name}>
-                      By {playlist.owner?.display_name}
+                    <div className={`${styles.info}`}>
+                      <div id={styles.title} title={playlist.name}>
+                        {playlist.name}
+                      </div>
+                      <div id={styles.author}
+                        title={playlist.owner?.display_name}>
+                        By {playlist.owner?.display_name}
+                      </div>
                     </div>
                   </div>
-
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
         || <Spinner />}
     </>
