@@ -13,59 +13,12 @@
   margin-bottom: 1rem;
 }
 
-.header {
-  text-align: center;
-}
-
-#heading {
-  color: #fff;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
-}
-
-#sub {
-  font-weight: 100;
-  font-style: italic;
-  color: var(--secondary-text-color);
-  font-size: 1.25rem;
-  margin: 1.5rem 0;
-}
-
-.inputs {
-  border-radius: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  line-height: 1.25rem;
-}
-
-#linkInput {
-  background-color: rgba(243, 244, 246, 1);
-  color: rgba(17, 24, 39, 1);
-  border: 2.5px solid rgba(243, 244, 246, 1);
-}
-
-#linkInput:focus {
-  outline: none !important;
-  border: 2.5px solid var(--spotify-green);;
-}
-
-#submit {
-  color: #fff;
-  border: 2.5px solid var(--spotify-green);;
-  background-color: var(--spotify-green);
-  margin-left: 0.75rem;
-}
-
-#submit:hover {
-  background-color: var(--light-green);
-  cursor: pointer;
-}
-
 #idForm {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 0.75rem;
 }
 
 #separatorContainer {
@@ -73,16 +26,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-}
-
-#separatorContainer p {
-  margin: 0 1.25rem;
-}
-
-.separator {
-  width: 6rem;
-  height: 1px;
-  background-color: var(--sep-gray);
+  gap: 1.25rem;
 }
 
 #inputSection {
@@ -90,31 +34,10 @@
   flex-direction: column;
 }
 
-#loginBtn {
-  background-color: var(--spotify-green);
-  color: #fff;
-  text-align: center;
-  border: none;
-  outline: none;
-}
-
-#loginBtn a {
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  color: inherit;
-  text-decoration: none;
-}
-
-#loginBtn a img {
+#loginLogo {
   width: 2rem;
   height: 2rem;
   padding-right: 0.5rem;
-}
-
-#loginBtn:hover {
-  background-color: var(--light-green);
-  cursor: pointer;
 }
 
 #libraryIcon {
@@ -124,10 +47,6 @@
 @media screen and (max-width: 430px) {
   #idForm {
     flex-direction: column;
-  }
-  #submit {
-    margin-left: 0;
-    margin-top: 0.75rem;
   }
 }
 

@@ -4,6 +4,7 @@ import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
 import styles from './SideBar.module.css';
 import { basename } from '../../../common/constants';
+import { Separator } from '../../UI/Misc/Separator';
 
 const SideBar = () => {
   return (
@@ -20,7 +21,7 @@ const SideBar = () => {
               <Link to='/'><span>STATS</span></Link>
             </div>
           </div>
-          <div className={styles.separator} />
+          <Separator width='95%' />
           <ul className={`${styles.navItems} ${styles.navItemsFont}`}>
             <li>
               <NavLink to='/'>
@@ -35,7 +36,7 @@ const SideBar = () => {
               </NavLink>
             </li>
           </ul>
-          <div className={styles.separator} />
+          <Separator width='95%' />
         </div>
         <div className={styles.playlistWrapper}>
           <ul>

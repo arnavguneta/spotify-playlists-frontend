@@ -1,0 +1,33 @@
+.btn {
+  color: #fff;
+  border: 2.5px solid var(--spotify-green);
+  background-color: var(--spotify-green);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-decoration: none;
+  flex-direction: row;
+}
+
+.btn:hover {
+  background-color: var(--light-green);
+  cursor: pointer;
+}
+
+.round {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.input {
+  background-color: rgba(243, 244, 246, 1);
+  color: rgba(17, 24, 39, 1);
+  border: 2.5px solid rgba(243, 244, 246, 1);
+}
+
+.input:focus {
+  outline: none !important;
+  border: 2.5px solid var(--spotify-green);;
+}

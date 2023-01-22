@@ -6,11 +6,34 @@ import Spinner from '../components/Spinner/Spinner';
 import { PlaylistItems } from '../common/types';
 
 import styles from './Library.module.css';
+import { MainTitle } from '../components/UI/Text/MainTitle';
+
+const PlaylistCard = ({ playlist }: { playlist: PlaylistItems }) => {
+  return (
+    <li key={playlist.id}
+      className={styles.card_items}>
+      <div className={`${styles.card} ${styles.rounded} `}>
+        <div className={`${styles.rounded} ${styles.imgContainer}`}>
+          <img src={playlist.images[0].url} id={styles.cover} />
+        </div>
+        <div className={styles.info}>
+          <div id={styles.title} title={playlist.name}>
+            {playlist.name}
+          </div>
+          <div id={styles.author}
+            title={playlist.owner?.display_name}>
+            By {playlist.owner?.display_name}
+          </div>
+        </div>
+      </div>
+    </li>
+  );
+};
 
 const Library = () => {
   const userState = useUserContext();
   const [isLoading, setLoading] = useState(true);
-  const [playlistsData, setPlaylistsData] = useState<Array<PlaylistItems>>();
+  const [playlistsData, setPlaylistsData] = useState<Array<PlaylistItems>>([]);
 
   useTitle('Spotify Stats | Library');
   useRedirect(!userState?.isAuth, '/login?redirect=profile', false);
@@ -32,34 +55,19 @@ const Library = () => {
 
   return (
     <>
-      {userState?.isAuth && !isLoading
+      {(userState?.isAuth && !isLoading)
         &&
         <div className={styles.libraryContainer}>
-          <h1 className={styles.header} id={styles.heading}>
-            Library
-          </h1>
+          <MainTitle>Library</MainTitle>
           <ul className={styles.playlistsContainer}>
-            {playlistsData?.map(playlist => {
-              return (
-                <li key={playlist.id}
-                  className={styles.card_items}>
-                  <div className={`${styles.card} ${styles.rounded} `}>
-                    <div className={`${styles.rounded} ${styles.imgContainer}`}>
-                      <img src={playlist.images[0].url} id={styles.cover} />
-                    </div>
-                    <div className={`${styles.info}`}>
-                      <div id={styles.title} title={playlist.name}>
-                        {playlist.name}
-                      </div>
-                      <div id={styles.author}
-                        title={playlist.owner?.display_name}>
-                        By {playlist.owner?.display_name}
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+            {playlistsData.length > 0
+              && playlistsData?.map(playlist => {
+                return (
+                  <PlaylistCard playlist={playlist} />
+                );
+              })
+              || <p id={styles.alt}>No playlists found in your library</p>
+            }
           </ul>
         </div>
         || <Spinner />}

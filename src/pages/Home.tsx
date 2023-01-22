@@ -6,6 +6,11 @@ import { basename } from '../common/constants';
 import { useTitle } from '../hooks/useTitle';
 import { useUserContext } from '../hooks/useUserContext';
 import styles from './Home.module.css';
+import { MainTitle } from '../components/UI/Text/MainTitle';
+import { SubTitle } from '../components/UI/Text/SubTitle';
+import { Button } from '../components/UI/Form/Button';
+import { Input } from '../components/UI/Form/Input';
+import { Separator } from '../components/UI/Misc/Separator';
 
 const Home = () => {
   useTitle('Spotify Stats | Home');
@@ -21,44 +26,35 @@ const Home = () => {
 
     <div className={styles.welcomeMain}>
       <div className={`${styles.section}`}>
-        <h1 className={styles.header} id={styles.heading}>
-          Analyze Your Spotify Playlists
-        </h1>
-        <p className={styles.header} id={styles.sub}>
-          View details and statistics about any playlist
-        </p>
+        <MainTitle>Analyze Your Spotify Playlists</MainTitle>
+        <SubTitle>View details and statistics about any playlist</SubTitle>
       </div>
       <div className={`${styles.section}`} id={styles.inputSection}>
         <div className={styles.linkSearch}>
           <form onSubmit={onPlaylistSubmit} id={styles.idForm}>
-            <input id={styles.linkInput} className={styles.inputs}
-              type="text" value={playlistLink} autoComplete='off'
-              placeholder='Paste a Spotify playlist link' required
-              onChange={(e) => setPlaylistLink(e.target.value)}
-            />
-            <button id={styles.submit} className={styles.inputs}
-              type="submit">Analyze</button>
+            <Input placeholder='Paste a Spotify playlist link'
+              value={playlistLink}
+              onChange={(e) => setPlaylistLink(e.target.value)} />
+            <Button>Analyze</Button>
           </form>
         </div>
         <div id={styles.separatorContainer}>
-          <div className={styles.separator} />
+          <Separator />
           <p>OR</p>
-          <div className={styles.separator} />
+          <Separator />
         </div>
         <div className={styles.login}>
-          <button id={styles.loginBtn} className={styles.inputs}>
-            {!userState?.isAuth
-              && <NavLink to='/login'>
-                <img src={`${basename}/images/logo/spotify-white.png`}
-                  alt="logo" />
-                Login with Spotify
-              </NavLink>
-              || <NavLink to='/library'>
-                <LibraryMusicIcon id={styles.libraryIcon} />
-                View Your Library
-              </NavLink>
-            }
-          </button>
+          <NavLink to={`/${userState?.isAuth ? 'library' : 'login'}`}>
+            <Button>
+              {!userState?.isAuth &&
+                <><img src={`${basename}/images/logo/spotify-white.png`}
+                  alt="logo" id={styles.loginLogo} />
+                  Login with Spotify</>
+                || <><LibraryMusicIcon id={styles.libraryIcon} />
+                  View Your Library</>
+              }
+            </Button>
+          </NavLink>
         </div>
       </div>
     </div>

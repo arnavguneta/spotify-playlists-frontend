@@ -1,0 +1,12 @@
+.header {
+  color: #fff;
+  padding: 0 0.75rem 0.75rem 0.75rem;
+}
+
+.sub {
+  font-weight: 100;
+  font-style: italic;
+  color: var(--secondary-text-color);
+  font-size: 1.25rem;
+  margin: 1rem 0 1.5rem 0;
+}
