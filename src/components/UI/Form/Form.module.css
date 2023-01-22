@@ -29,5 +29,26 @@
 
 .input:focus {
   outline: none !important;
-  border: 2.5px solid var(--spotify-green);;
+  border: 2.5px solid var(--spotify-green);
+}
+
+.dark.input {
+  padding: 0.5rem;
+  background-color: var(--light-gray);
+  color: #fff;
+  border: 2.5px solid var(--light-gray);
+}
+
+.dark.input:focus {
+  outline: none !important;
+  border: 2.5px solid var(--sep-gray);
+}
+
+.dark.input:hover {
+  outline: none !important;
+  border: 2.5px solid var(--sep-gray);
+}
+
+.round.hasIcon {
+  padding-left: 1.75rem;
 }

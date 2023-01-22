@@ -6,21 +6,6 @@
   color: var(--primary-text-color);
 }
 
-.toggle {
-  transform: rotate(180deg);
-}
-
-/* .closed {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-1em);
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;
-}
-
-.active {
-  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0s, z-index 0s linear 0.3s;
-} */
-
 @media screen and (max-width: 700px) {
   #container {
     display: none;

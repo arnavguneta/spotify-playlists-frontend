@@ -1,3 +1,4 @@
+import React from 'react';
 import { useTitle } from '../hooks/useTitle';
 import { useRedirect } from '../hooks/useRedirect';
 import { useUserContext } from '../hooks/useUserContext';
@@ -8,6 +9,8 @@ import { PlaylistItems } from '../common/types';
 import styles from './Library.module.css';
 import { MainTitle } from '../components/UI/Text/MainTitle';
 import { useNavigate } from 'react-router-dom';
+import { Input } from '../components/UI/Form/Input';
+import { Search } from '@mui/icons-material';
 
 const PlaylistCard = ({ playlist }: { playlist: PlaylistItems }) => {
   const navigate = useNavigate();
@@ -34,6 +37,7 @@ const Library = () => {
   const userState = useUserContext();
   const [isLoading, setLoading] = useState(true);
   const [playlistsData, setPlaylistsData] = useState<Array<PlaylistItems>>([]);
+  const [filter, setFilter] = useState('');
 
   useTitle('Spotify Stats | Library');
   useRedirect(!userState?.isAuth, '/login?redirect=profile', false);
@@ -53,20 +57,33 @@ const Library = () => {
       }).catch((error) => console.error(error));
   }, []);
 
+  const filteredData = playlistsData.filter(data =>
+    data.name.toLowerCase().includes(filter) ||
+    data.owner?.display_name.toLowerCase().includes(filter)
+  );
+
   return (
     <>
       {(userState?.isAuth && !isLoading)
         &&
         <div className={styles.libraryContainer}>
-          <MainTitle>Library</MainTitle>
+          <div className={styles.header}>
+            <MainTitle>Library</MainTitle>
+            <div className={styles.filter}>
+              <Search id={styles.search} />
+              <Input placeholder='Filter by playlist name or author'
+                value={filter} id='filter' dark hasIcon
+                onChange={(e) => setFilter(e.target.value.toLowerCase())} />
+            </div>
+          </div>
           <ul className={styles.playlistsContainer}>
-            {playlistsData.length > 0
-              && playlistsData?.map(playlist => {
+            {filteredData.length > 0
+              && filteredData?.map(playlist => {
                 return (
                   <PlaylistCard key={playlist.id} playlist={playlist} />
                 );
               })
-              || <p id={styles.alt}>No playlists found in your library</p>
+              || <p id={styles.alt}>No playlists found</p>
             }
           </ul>
         </div>

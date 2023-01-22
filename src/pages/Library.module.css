@@ -79,6 +79,35 @@
   max-width: 350px;
   display: flex;
   padding: 0.5rem;
+  flex: 0 1 calc(8% - 1em);
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* justify-content: space-between; */
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  min-width: 10rem;
+  position: relative;
+}
+
+#search {
+  height: 1.25rem;
+  width: 1.25rem;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  color: var(--secondary-text-color);
 }
 
 @media (min-width: 700px) {
