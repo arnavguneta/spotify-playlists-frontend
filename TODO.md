@@ -14,7 +14,7 @@ Feature management, along with tracking any bugs that need to be fixed
   - [ ] I should be redirect to /playlist/:id
   - [ ] I should see a table of songs by index, album, and length
   - [ ] I should see a menu to analyze playlist
-- [ ] As a user, when I view my library, I should be able to filter playlists by author and title
+- [x] As a user, when I view my library, I should be able to filter playlists by author and title
 - [ ] As a user, I should see a footer with app credits, disclaimer, terms of use, and a privacy policy
 - [ ] As a user, I should be able to load more than max playlists/songs by either scrolling in the library/playlists page or clicking a load more button
 
