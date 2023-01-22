@@ -16,6 +16,8 @@ import { useTimeout } from './hooks/useTimeout';
 import { Disclaimer } from './components/Footer/Disclaimer';
 import { Lost404 } from './pages/404';
 import { Playlist } from './pages/Playlist';
+import { Privacy } from './pages/Privacy';
+import { Terms } from './pages/Terms';
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -48,6 +50,8 @@ function App() {
                 <Route path="/playlist">
                   <Route path=':playlistId' element={<Playlist />} />
                 </Route>
+                <Route path='/privacy' element={<Privacy />} />
+                <Route path='/terms' element={<Terms />} />
                 <Route path='/*' element={<Lost404 />} />
               </Routes>
             </section>

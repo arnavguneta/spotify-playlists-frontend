@@ -1,7 +1,7 @@
 # Project Todos
 Feature management, along with tracking any bugs that need to be fixed
 # Bugs
-- [ ] Check padding/margin on .header in mobile view
+- [x] Check padding/margin on .header in mobile view
 - [ ] Hitting back keeps state even after logout/login
 - [ ] Reloading on authenticated endpoints redirects to login
 
@@ -15,8 +15,10 @@ Feature management, along with tracking any bugs that need to be fixed
   - [ ] I should see a table of songs by index, album, and length
   - [ ] I should see a menu to analyze playlist
 - [x] As a user, when I view my library, I should be able to filter playlists by author and title
-- [ ] As a user, I should see a footer with app credits, disclaimer, terms of use, and a privacy policy
+- [x] As a user, I should see a footer with app credits, disclaimer, terms of use, and a privacy policy
 - [ ] As a user, I should be able to load more than max playlists/songs by either scrolling in the library/playlists page or clicking a load more button
+- [ ] As a user, I should be able to favorite playlists by clicking the heart icon on the playlist card in my library
+
 
 # Misc
 - [x] Refactor components for reuse

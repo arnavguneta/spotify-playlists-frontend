@@ -29,7 +29,7 @@
 
 .mainContent {
   margin: 1rem;
-  min-height: 100vh;
+  min-height: 86vh;
   overflow-y: hidden;
   display: flex;
   flex-direction: column;
@@ -44,12 +44,10 @@
 
 @media screen and (max-width: 580px) {
   .contentContainer {
-    /* padding-bottom: 8rem; */
     margin-left: 0rem;
   }
 
   .closed.contentContainer {
-    /* padding-bottom: 8rem; */
     margin-left: 0rem;
   }
 
