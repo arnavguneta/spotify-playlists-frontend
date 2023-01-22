@@ -1,11 +1,11 @@
 import React from 'react';
 
 import styles from './Title.module.css';
-import { Props } from '../../../common/types';
 
-export const MainTitle: React.FC<Props> = ({ children }) => {
+export const MainTitle = ({ children, center }: 
+  {children: React.ReactNode, center?: boolean}) => {
   return (
-    <h1 className={styles.header}>
+    <h1 className={`${styles.header} ${center ? styles.center : ''}`}>
       {children}
     </h1>
   );

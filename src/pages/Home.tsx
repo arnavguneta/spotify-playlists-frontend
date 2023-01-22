@@ -26,8 +26,10 @@ const Home = () => {
 
     <div className={styles.welcomeMain}>
       <div className={`${styles.section}`}>
-        <MainTitle>Analyze Your Spotify Playlists</MainTitle>
-        <SubTitle>View details and statistics about any playlist</SubTitle>
+        <MainTitle center>Analyze Your Spotify Playlists</MainTitle>
+        <SubTitle center>
+          View details and statistics about any playlist
+        </SubTitle>
       </div>
       <div className={`${styles.section}`} id={styles.inputSection}>
         <div className={styles.linkSearch}>

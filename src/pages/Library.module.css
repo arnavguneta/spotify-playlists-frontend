@@ -99,17 +99,19 @@
 @media screen and (max-width: 700px) {
   .playlistsContainer {
     flex-direction: column;
+    background-color: var(--light-gray);
+    border-radius: 1rem;
   }
 
   .card {
     flex-direction: row;
     padding: 1rem 1.25rem;
-    width: 80vw;
+    width: 100%;
   }
 
   .card_items {
     flex-grow: 1;
-    max-width: fit-content;
+    max-width: 100%;
     padding: 0.25rem;
   }
 
@@ -118,25 +120,27 @@
     height: 80px;
   }
 
+  .imgContainer {
+    flex-shrink: 0;
+  }
+
   #title {
     margin-top: 0;
   }
 
   .info {
+    width: 100%;
     justify-content: center;
   }
-}
 
-@media screen and (max-width: 580px) {
-  .card {
-    flex-direction: row;
-    padding: 1rem 1.25rem;
-    width: 87vw;
+  .info div {
+    max-width: 100%
   }
 }
 
 @media screen and (max-width: 300px) {
-  .imgContainer {
-    display: none;
+  #cover {
+    width: 60px;
+    height: 60px;
   }
 }

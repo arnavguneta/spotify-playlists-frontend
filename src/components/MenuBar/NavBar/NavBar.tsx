@@ -5,16 +5,20 @@ import { useUserContext } from '../../../hooks/useUserContext';
 import { AccountPill } from './Account/AccountPill';
 import { Burger } from './Burger/Burger';
 import { basename } from '../../../common/constants';
+import { Collapse } from './Collapse/Collapse';
 
-const NavBar = () => {
+const NavBar = ({ toggleSidebar, handleSidebarToggle }: 
+  { toggleSidebar: boolean, handleSidebarToggle: () => void }) => {
   const userState = useUserContext();
   const burgerItems = ['Home', 'Library'];
   const accountItems = ['Profile', 'Logout'];
+  console.log('rerendered navbar');
 
   return (
     <header>
       <nav className={styles.navbar}>
         <div className={styles.altMenu}>
+          <Collapse toggle={toggleSidebar} handleToggle={handleSidebarToggle}/>
           <Burger items={burgerItems} />
           <div className={styles.logo}>
             <Link to='/'>

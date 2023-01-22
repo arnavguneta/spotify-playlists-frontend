@@ -7,19 +7,19 @@ import { PlaylistItems } from '../common/types';
 
 import styles from './Library.module.css';
 import { MainTitle } from '../components/UI/Text/MainTitle';
+import { useNavigate } from 'react-router-dom';
 
 const PlaylistCard = ({ playlist }: { playlist: PlaylistItems }) => {
+  const navigate = useNavigate();
   return (
-    <li key={playlist.id}
-      className={styles.card_items}>
+    <li className={styles.card_items}
+      onClick={() => navigate(`/playlist/${playlist.id}`)}>
       <div className={`${styles.card} ${styles.rounded} `}>
         <div className={`${styles.rounded} ${styles.imgContainer}`}>
           <img src={playlist.images[0].url} id={styles.cover} />
         </div>
         <div className={styles.info}>
-          <div id={styles.title} title={playlist.name}>
-            {playlist.name}
-          </div>
+          <div id={styles.title} title={playlist.name}>{playlist.name}</div>
           <div id={styles.author}
             title={playlist.owner?.display_name}>
             By {playlist.owner?.display_name}
@@ -63,7 +63,7 @@ const Library = () => {
             {playlistsData.length > 0
               && playlistsData?.map(playlist => {
                 return (
-                  <PlaylistCard playlist={playlist} />
+                  <PlaylistCard key={playlist.id} playlist={playlist} />
                 );
               })
               || <p id={styles.alt}>No playlists found in your library</p>

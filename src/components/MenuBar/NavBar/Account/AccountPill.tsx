@@ -27,7 +27,7 @@ export const AccountPill = ({ items }: MenuItems) => {
         <path d="M0 0.75L5.5 6.25L11 0.75H0Z" fill="#F9F9F9"></path>
       </svg>
       <Dropdown items={items} show={showProfile} toggle={toggleProfile} 
-        style={{right: '1.5rem'}} />
+        style={{right: '2.25%'}} />
     </div>
   );
 };

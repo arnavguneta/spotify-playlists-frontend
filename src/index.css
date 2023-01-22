@@ -1,3 +1,7 @@
+html {
+  overflow-y: hidden;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -45,3 +49,4 @@ a {
   --light-gray: #1d1d1d;
   --hover-gray: #232425;
 }
+

@@ -3,10 +3,11 @@
     height: 3rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.25rem;
-    padding: 0.75rem 1.5rem;
+    /* margin-bottom: 1.25rem; */
+    padding: 0.75rem 1.5rem 0.75rem 0.25rem;
+    overflow-y: hidden;
 }
 
 .navItemsFont {
@@ -58,8 +59,9 @@
 
 @media screen and (max-width: 580px) {
     .navbar {
-        justify-content: space-between;
+        padding: 0.75rem 1.5rem;
     }
+
     .logo {
         display: flex;
     }

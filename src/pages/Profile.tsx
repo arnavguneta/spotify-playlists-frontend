@@ -5,7 +5,7 @@ import { useUserContext } from '../hooks/useUserContext';
 const Profile = () => {
   const userState = useUserContext();
 
-  useTitle('Spotify Stats | Library');
+  useTitle('Spotify Stats | Profile');
   useRedirect(!userState?.isAuth, '/login?redirect=profile', false);
 
   return (

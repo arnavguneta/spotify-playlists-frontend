@@ -3,6 +3,16 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  overflow-y: scroll;
+}
+
+.app::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.app::-webkit-scrollbar-thumb {
+  background: var(--light-gray);
+  border-radius: 5rem;
 }
 
 .contentContainer {
@@ -11,9 +21,10 @@
   position: relative;
   margin-left: 11.5rem;
   overflow-y: auto;
-  /* overflow-y: auto;
-  display: flex;
-  flex-direction: column; */
+}
+
+.closed.contentContainer {
+  margin-left: 5rem;
 }
 
 .mainContent {
@@ -23,7 +34,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* overflow-y: scroll; */
 }
 
 @media screen and (max-width: 700px) {
@@ -37,6 +47,12 @@
     /* padding-bottom: 8rem; */
     margin-left: 0rem;
   }
+
+  .closed.contentContainer {
+    /* padding-bottom: 8rem; */
+    margin-left: 0rem;
+  }
+
   .mainContent {
     min-height: 80vh;
   }

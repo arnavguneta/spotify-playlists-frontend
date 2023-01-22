@@ -1,11 +1,11 @@
 import React from 'react';
 
 import styles from './Title.module.css';
-import { Props } from '../../../common/types';
 
-export const SubTitle: React.FC<Props> = ({ children }) => {
+export const SubTitle = ({ children, center }: 
+  {children: React.ReactNode, center?: boolean}) => {
   return (
-    <h2 className={styles.sub}>
+    <h2 className={`${styles.sub} ${center ? styles.center : ''}`}>
       {children}
     </h2>
   );
