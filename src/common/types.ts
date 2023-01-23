@@ -40,19 +40,13 @@ export interface DropdownSettings extends MenuItems {
   style?: object
 }
 
-export interface PlaylistItems {
+export interface PlaylistItem {
   collaborative: boolean,
   description: string | null,
-  external_urls: {
-    spotify: string
-  },
+  external_urls: ExternalUrl,
   href: string,
   id: string,
-  images: Array<{
-    height: number,
-    url: string,
-    width: number
-  }> | [],
+  images: Image,
   name: string,
   owner: {
     display_name: string
@@ -66,5 +60,32 @@ export interface PlaylistItems {
   type: string,
   uri: string
 }
+
+export interface Track {
+  album: {
+    external_urls: ExternalUrl,
+    id: string,
+    images: Image,
+    name: string
+  },
+  artists: Array<{
+    id: string,
+    name: string
+    external_urls: ExternalUrl,
+  }>,
+  duration_ms: number,
+  explicit: boolean,
+  external_urls: ExternalUrl,
+  id: string,
+  name: string
+}
+
+export interface TrackItem {
+  added_at: string,
+  track: Track;
+}
+
+export type Image = Array<{ height: number, url: string, width: number }> | [];
+export type ExternalUrl = { spotify: string }
 
 export type Callback = () => void;

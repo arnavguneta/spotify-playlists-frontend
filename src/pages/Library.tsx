@@ -4,7 +4,7 @@ import { useRedirect } from '../hooks/useRedirect';
 import { useUserContext } from '../hooks/useUserContext';
 import { useEffect, useState } from 'react';
 import Spinner from '../components/Spinner/Spinner';
-import { PlaylistItems } from '../common/types';
+import { PlaylistItem } from '../common/types';
 
 import styles from './Library.module.css';
 import { MainTitle } from '../components/UI/Text/MainTitle';
@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { Input } from '../components/UI/Form/Input';
 import { Search } from '@mui/icons-material';
 
-const PlaylistCard = ({ playlist }: { playlist: PlaylistItems }) => {
+const PlaylistCard = ({ playlist }: { playlist: PlaylistItem }) => {
   const navigate = useNavigate();
   return (
     <li className={styles.card_items}
@@ -36,14 +36,14 @@ const PlaylistCard = ({ playlist }: { playlist: PlaylistItems }) => {
 const Library = () => {
   const userState = useUserContext();
   const [isLoading, setLoading] = useState(true);
-  const [playlistsData, setPlaylistsData] = useState<Array<PlaylistItems>>([]);
+  const [playlistsData, setPlaylistsData] = useState<Array<PlaylistItem>>([]);
   const [filter, setFilter] = useState('');
 
   useTitle('Spotify Stats | Library');
   useRedirect(!userState?.isAuth, '/login?redirect=profile', false);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_API}/user/playlists`,
+    fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/me/playlists`,
       { credentials: 'include' })
       .then((response) => {
         if (!response.ok) {
@@ -51,13 +51,13 @@ const Library = () => {
         }
         return response.json();
       })
-      .then((result: Array<PlaylistItems>) => {
+      .then((result: Array<PlaylistItem>) => {
         setLoading(false);
         setPlaylistsData(result);
       }).catch((error) => console.error(error));
   }, []);
 
-  const filteredData = playlistsData.filter(data =>
+  const filteredData = (playlistsData ?? []).filter(data =>
     data.name.toLowerCase().includes(filter) ||
     data.owner?.display_name.toLowerCase().includes(filter)
   );
@@ -78,11 +78,9 @@ const Library = () => {
           </div>
           <ul className={styles.playlistsContainer}>
             {filteredData.length > 0
-              && filteredData?.map(playlist => {
-                return (
+              && filteredData?.map(playlist => 
                   <PlaylistCard key={playlist.id} playlist={playlist} />
-                );
-              })
+                )
               || <p id={styles.alt}>No playlists found</p>
             }
           </ul>

@@ -1,0 +1,175 @@
+.libraryContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
+.card {
+  background-color: var(--light-gray);
+  padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.card:hover {
+  background-color: var(--hover-gray);
+  opacity: 0.95;
+  transition: 0.2s;
+}
+
+.imgContainer {
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+    25px 0px 20px -20px rgba(0, 0, 0, 0.45),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.45),
+    -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+  display: block;
+}
+
+#cover {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info div {
+  max-width: 10rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#title {
+  color: #fff;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+#author {
+  margin-top: 0.75rem;
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+}
+
+#alt {
+  padding: 0.25rem 0 0.5rem 1rem;
+}
+
+.card_items {
+  max-width: 350px;
+  display: flex;
+  padding: 0.5rem;
+  flex: 0 1 calc(8% - 1em);
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* justify-content: space-between; */
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  max-width: 20rem;
+  min-width: 10rem;
+  position: relative;
+}
+
+#search {
+  height: 1.25rem;
+  width: 1.25rem;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  color: var(--secondary-text-color);
+}
+
+@media (min-width: 700px) {
+  .card_items {
+    min-width: 225px;
+    width: 20%;
+  }
+}
+
+@media (min-width: 55rem) {
+  .card_items {
+    width: 12.5%;
+    min-width: 200px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .playlistsContainer {
+    flex-direction: column;
+    background-color: var(--light-gray);
+    border-radius: 1rem;
+  }
+
+  .card {
+    flex-direction: row;
+    padding: 1rem 1.25rem;
+    width: 100%;
+  }
+
+  .card_items {
+    flex-grow: 1;
+    max-width: 100%;
+    padding: 0.25rem;
+  }
+
+  #cover {
+    width: 80px;
+    height: 80px;
+  }
+
+  .imgContainer {
+    flex-shrink: 0;
+  }
+
+  #title {
+    margin-top: 0;
+  }
+
+  .info {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .info div {
+    max-width: 100%
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #cover {
+    width: 60px;
+    height: 60px;
+  }
+}

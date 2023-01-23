@@ -24,7 +24,7 @@
   .footer {
     text-align: center;
     flex-direction: column;
-    margin: 0 0.25rem;
+    margin: 0 0.25rem 2rem 0.25rem;
     gap: 0.5rem;
   }
 

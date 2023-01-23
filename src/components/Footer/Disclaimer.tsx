@@ -5,7 +5,7 @@ export const Disclaimer = () => {
   return (
     <footer className={styles.footer}>
       <span>
-        Spotify Stats is in no way affiliated with Spotify AB.
+        Spotify Stats is in no way affiliated with Spotify AB
       </span>
       <span id={styles.author}>
         Developed by <a href='https://www.linkedin.com/in/arnavguneta/'
