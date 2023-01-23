@@ -1,12 +1,12 @@
 # Project Todos
 Feature management, along with tracking any bugs that need to be fixed
-# Bugs
+## Bugs
 - [x] Check padding/margin on .header in mobile view
 - [ ] Hitting back keeps state even after logout/login
 - [ ] Reloading on authenticated endpoints redirects to login
 - [ ] A user should not have to be logged in to use the Analyze feature via homepage
 
-# Features
+## Features
 - [ ] As a user, when I enter a spotify playlist URL in the home page:
   - [ ] I should get feedback if the URL is in an invalid format
   - [ ] I should get feedback if the playlist does not exist or is private, a popup should prompt to log in if the playlist is private
@@ -22,6 +22,6 @@ Feature management, along with tracking any bugs that need to be fixed
 - [ ] As a user, I should be able to favorite playlists by clicking the heart icon on the playlist card in my library
 
 
-# Misc
+## Misc
 - [x] Refactor components for reuse
 - [ ] Refactor api calls into api folder
