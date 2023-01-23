@@ -5,6 +5,7 @@ Feature management, along with tracking any bugs that need to be fixed
 - [ ] Hitting back keeps state even after logout/login
 - [ ] Reloading on authenticated endpoints redirects to login
 - [ ] A user should not have to be logged in to use the Analyze feature via homepage
+- [ ] Tracks hover on mobile is smaller than hover on playlists
 
 ## Features
 - [ ] As a user, when I enter a spotify playlist URL in the home page:
