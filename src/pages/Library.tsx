@@ -16,7 +16,7 @@ const PlaylistCard = ({ playlist }: { playlist: PlaylistItem }) => {
   const navigate = useNavigate();
   return (
     <li className={styles.card_items}
-      onClick={() => navigate(`/playlist/${playlist.id}`)}>
+      onClick={() => navigate(`/playlists/${playlist.id}`)}>
       <div className={`${styles.card} ${styles.rounded} `}>
         <div className={`${styles.rounded} ${styles.imgContainer}`}>
           <img src={playlist.images[0].url} id={styles.cover} />

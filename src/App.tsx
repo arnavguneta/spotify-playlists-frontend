@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import SideBar from './components/MenuBar/SideBar/SideBar';
-import NavBar from './components/MenuBar/NavBar/NavBar';
-import Spinner from './components/Spinner/Spinner';
-
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Library from './pages/Library';
 import Profile from './pages/Profile';
-
-import styles from './App.module.css';
-import { useTimeout } from './hooks/useTimeout';
-import { Disclaimer } from './components/Footer/Disclaimer';
-import { Lost404 } from './pages/404';
 import { Playlist } from './pages/Playlist';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
+import { Lost404 } from './pages/404';
+
+import SideBar from './components/MenuBar/SideBar/SideBar';
+import NavBar from './components/MenuBar/NavBar/NavBar';
+import Spinner from './components/Spinner/Spinner';
+import { Disclaimer } from './components/Footer/Disclaimer';
+
+import { useTimeout } from './hooks/useTimeout';
+
+import styles from './App.module.css';
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -28,7 +29,6 @@ function App() {
   };
 
   useTimeout(50, () => setLoading(false));
-  console.log('rerendered app');
   return (
     <div className={styles.app}>
       {isLoading &&
@@ -47,7 +47,7 @@ function App() {
                 <Route path='/library' element={<Library />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/logout' element={<Logout />} />
-                <Route path="/playlist">
+                <Route path="/playlists">
                   <Route path=':playlistId' element={<Playlist />} />
                 </Route>
                 <Route path='/privacy' element={<Privacy />} />

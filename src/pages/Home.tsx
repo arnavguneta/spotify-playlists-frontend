@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import { basename } from '../common/constants';
@@ -13,17 +13,19 @@ import { Input } from '../components/UI/Form/Input';
 import { Separator } from '../components/UI/Misc/Separator';
 
 const Home = () => {
-  useTitle('Spotify Stats | Home');
-
   const [playlistLink, setPlaylistLink] = useState('');
   const userState = useUserContext();
+  const navigate = useNavigate();
 
   const onPlaylistSubmit = (e: React.SyntheticEvent) => {
-    return e.preventDefault();
+    e.preventDefault();
+    const id = playlistLink.trim().split('playlist/')[1].split('?')[0];
+    navigate(`/playlists/${id}`);
   };
 
-  return (
+  useTitle('Spotify Stats | Home');
 
+  return (
     <div className={styles.welcomeMain}>
       <div className={`${styles.section}`}>
         <MainTitle center>Analyze Your Spotify Playlists</MainTitle>

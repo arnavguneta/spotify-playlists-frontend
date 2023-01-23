@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTitle } from '../hooks/useTitle';
 import { TrackItem } from '../common/types';
 import { useUserContext } from '../hooks/useUserContext';
@@ -11,24 +11,24 @@ import Spinner from '../components/Spinner/Spinner';
 import { Input } from '../components/UI/Form/Input';
 
 const TrackCard = ({ trackData }: { trackData: TrackItem }) => {
-  const navigate = useNavigate();
   const { track } = trackData;
   const artists = track.artists.map(artist => artist.name).join(' ');
   return (
-    <li className={styles.card_items}
-      onClick={() => navigate(`/playlist/${track.id}`)}>
-      <div className={`${styles.card} ${styles.rounded} `}>
-        <div className={`${styles.rounded} ${styles.imgContainer}`}>
-          <img src={track.album.images[0].url} id={styles.cover} />
-        </div>
-        <div className={styles.info}>
-          <div id={styles.title} title={track.name}>{track.name}</div>
-          <div id={styles.author}
-            title={artists}>
-            By {artists}
+    <li className={styles.card_items}>
+      <a href={track.external_urls.spotify} target='_blank'>
+        <div className={`${styles.card} ${styles.rounded} `}>
+          <div className={`${styles.rounded} ${styles.imgContainer}`}>
+            <img src={track.album.images[0].url} id={styles.cover} />
+          </div>
+          <div className={styles.info}>
+            <div id={styles.title} title={track.name}>{track.name}</div>
+            <div id={styles.author}
+              title={artists}>
+              By {artists}
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </li>
   );
 };

@@ -7,7 +7,6 @@ import { basename } from '../../../common/constants';
 import { Separator } from '../../UI/Misc/Separator';
 
 const SideBar = ({ toggle }: { toggle: boolean }) => {
-  console.log('rerendered sidebar');
   return (
     <div className={`${toggle ? styles.closed : ''}`}>
       <nav className={styles.sidebar}>

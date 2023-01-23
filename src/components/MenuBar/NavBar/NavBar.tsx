@@ -12,7 +12,6 @@ const NavBar = ({ toggleSidebar, handleSidebarToggle }:
   const userState = useUserContext();
   const burgerItems = ['Home', 'Library'];
   const accountItems = ['Profile', 'Logout'];
-  console.log('rerendered navbar');
 
   return (
     <header>
