@@ -7,11 +7,11 @@ Feature management, along with tracking any bugs that need to be fixed
 - [ ] Tracks hover on mobile is smaller than hover on playlists
 - [x] A user should not have to be logged in to use the Analyze feature via homepage
   - [x] Add a middleware to backend to use client credentials as backup if no access token is available
-  
+
 ## Features
 - [ ] As a user, when I enter a spotify playlist URL in the home page:
   - [ ] I should get feedback if the URL is in an invalid format
-  - [ ] I should get feedback if the playlist does not exist or is private, a popup should prompt to log in if the playlist is private
+  - [x] I should get feedback if the playlist does not exist or is private, a popup should prompt to log in if the playlist is private
   - [x] I should see that if a playlist is found, a loading screen after clicking the "Analyze" button redirects to playlist/:id
 - [ ] As a user, when I click a playlist in the library view:
   - [x] I should be redirect to /playlist/:id
