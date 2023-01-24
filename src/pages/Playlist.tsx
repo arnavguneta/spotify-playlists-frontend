@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTitle } from '../hooks/useTitle';
 import { TrackItem } from '../common/types';
-import { useUserContext } from '../hooks/useUserContext';
+// import { useUserContext } from '../hooks/useUserContext';
 
 import styles from './Playlist.module.css';
 import { MainTitle } from '../components/UI/Text/MainTitle';
@@ -34,9 +34,10 @@ const TrackCard = ({ trackData }: { trackData: TrackItem }) => {
 };
 
 export const Playlist = () => {
-  const userState = useUserContext();
+  // const userState = useUserContext();
   const { playlistId } = useParams();
   const [isLoading, setLoading] = useState(true);
+  const [isError, setError] = useState(false);
   const [filter, setFilter] = useState('');
   const [playlistName, setPlaylistName] = useState('');
   const [tracksData, setTracksData] = useState<Array<TrackItem>>([]);
@@ -49,7 +50,8 @@ export const Playlist = () => {
       { credentials: 'include' })
       .then((response) => {
         if (!response.ok) {
-          throw Error(`${response.status} - ${response.statusText}`);
+          setError(true);
+          setLoading(false);
         }
         return response.json();
       })
@@ -80,7 +82,13 @@ export const Playlist = () => {
 
   return (
     <>
-      {(userState?.isAuth && !isLoading)
+      {(isError &&
+        <p id={styles.alt}>
+          No tracks found in this playlist<br />
+          If this playlist is private, please login to view details
+        </p>)
+      }
+      {(!isLoading && !isError
         &&
         <div className={styles.libraryContainer}>
           <div className={styles.header}>
@@ -100,8 +108,8 @@ export const Playlist = () => {
               || <p id={styles.alt}>No tracks found</p>
             }
           </ul>
-        </div>
-        || <Spinner />}
+        </div>)}
+      {(!isError && isLoading && <Spinner />)}
     </>
   );
 };

@@ -4,8 +4,8 @@ Feature management, along with tracking any bugs that need to be fixed
 - [x] Check padding/margin on .header in mobile view
 - [ ] Hitting back keeps state even after logout/login
 - [ ] Reloading on authenticated endpoints redirects to login
-- [ ] A user should not have to be logged in to use the Analyze feature via homepage
-
+- [x] A user should not have to be logged in to use the Analyze feature via homepage
+  - [x] Add a middleware to backend to use client credentials as backup if no access token is available
 # Features
 - [ ] As a user, when I enter a spotify playlist URL in the home page:
   - [ ] I should get feedback if the URL is in an invalid format
