@@ -4,9 +4,10 @@ Feature management, along with tracking any bugs that need to be fixed
 - [x] Check padding/margin on .header in mobile view
 - [ ] Hitting back keeps state even after logout/login
 - [ ] Reloading on authenticated endpoints redirects to login
-- [ ] Tracks hover on mobile is smaller than hover on playlists
+- [x] Tracks hover on mobile is smaller than hover on playlists
 - [x] A user should not have to be logged in to use the Analyze feature via homepage
   - [x] Add a middleware to backend to use client credentials as backup if no access token is available
+- [x] Account pill has hard coded name
 
 ## Features
 - [ ] As a user, when I enter a spotify playlist URL in the home page:

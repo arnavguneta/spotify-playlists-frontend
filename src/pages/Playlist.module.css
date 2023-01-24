@@ -126,7 +126,16 @@
 
 
 @media screen and (max-width: 700px) {
+  .filter {
+    max-width: 100%;
+  }
+
+  .header {
+    margin: 0 0.4rem 0.5rem 0.4rem;
+  }
+
   .playlistsContainer {
+    margin: 0 0.25rem 0.25rem 0.25rem;
     flex-direction: column;
     background-color: var(--light-gray);
     border-radius: 1rem;

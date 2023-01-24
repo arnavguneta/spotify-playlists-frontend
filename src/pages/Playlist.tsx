@@ -15,7 +15,8 @@ const TrackCard = ({ trackData }: { trackData: TrackItem }) => {
   const artists = track.artists.map(artist => artist.name).join(' ');
   return (
     <li className={styles.card_items}>
-      <a href={track.external_urls.spotify} target='_blank'>
+      <a href={track.external_urls.spotify} target='_blank'
+        style={{ width: '100%' }}>
         <div className={`${styles.card} ${styles.rounded} `}>
           <div className={`${styles.rounded} ${styles.imgContainer}`}>
             <img src={track.album.images[0].url} id={styles.cover} />

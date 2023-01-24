@@ -20,7 +20,7 @@ export const AccountPill = ({ items }: MenuItems) => {
           `url(${userData?.user?.images[0]?.url || 
             'https://i.imgur.com/pJNRID3.png'})`
       }} />
-      <span id={styles.username}>coolkidarnie</span>
+      <span id={styles.username}>{userData?.user?.display_name}</span>
       <svg width="11" height="7" viewBox="0 0 11 7" fill="none"
         xmlns="http://www.w3.org/2000/svg" id={styles['dropdown-arrow']}
         className={(showProfile) ? styles['dropdown-active'] : ''}>
