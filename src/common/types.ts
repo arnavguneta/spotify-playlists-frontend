@@ -85,6 +85,11 @@ export interface TrackItem {
   track: Track;
 }
 
+export interface TrackResponse {
+  items: Array<TrackItem>,
+  offset: number
+}
+
 export type Image = Array<{ height: number, url: string, width: number }> | [];
 export type ExternalUrl = { spotify: string }
 

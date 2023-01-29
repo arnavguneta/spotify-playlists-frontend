@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTitle } from '../hooks/useTitle';
-import { TrackItem } from '../common/types';
+import { TrackItem, TrackResponse } from '../common/types';
 // import { useUserContext } from '../hooks/useUserContext';
 
 import styles from './Playlist.module.css';
@@ -42,8 +42,47 @@ export const Playlist = () => {
   const [filter, setFilter] = useState('');
   const [playlistName, setPlaylistName] = useState('');
   const [tracksData, setTracksData] = useState<Array<TrackItem>>([]);
-
+  // const [offset, setOffset] = useState(0);
+  const [isFetchingMore, setFetchingMore] = useState(false);
+  let offset = 0;
+  let fetching = false;
   useTitle('Spotify Stats | Playlist');
+
+  function isInViewport(e: Element) {
+    const rect = e.getBoundingClientRect();
+    return (
+      Math.floor(rect.bottom) - 200 <=
+      (window.innerHeight || document.documentElement.clientHeight)
+    );
+  }
+
+  function handleScroll() {
+    const footer = document.querySelector('#footer');
+    if (!footer || !isInViewport(footer)|| isFetchingMore || fetching) return;
+    setFetchingMore(true);
+    fetching = true;
+    // eslint-disable-next-line max-len
+    fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/playlists/${playlistId}/tracks?offset=${offset}`,
+      { credentials: 'include' })
+      .then((response) => {
+        if (!response.ok) {
+          fetching = false;
+          setFetchingMore(false);
+        }
+        return response.json();
+      })
+      .then((result: TrackResponse) => {
+        setFetchingMore(false);
+        setTracksData(prevState => [...prevState, ...result.items]);
+        offset = result.offset;
+        fetching = false;
+      }).catch((error) => console.error(error));
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, true);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     // eslint-disable-next-line max-len
@@ -56,9 +95,10 @@ export const Playlist = () => {
         }
         return response.json();
       })
-      .then((result: Array<TrackItem>) => {
+      .then((result: TrackResponse) => {
         setLoading(false);
-        setTracksData(result);
+        setTracksData(result.items);
+        offset = result.offset;
       }).catch((error) => console.error(error));
     // eslint-disable-next-line max-len
     fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/playlists/${playlistId}`,
@@ -101,7 +141,7 @@ export const Playlist = () => {
                 onChange={(e) => setFilter(e.target.value.toLowerCase())} />
             </div>
           </div>
-          <ul className={styles.playlistsContainer}>
+          <ul className={styles.playlistsContainer} >
             {filteredData.length > 0
               && filteredData?.map(track =>
                 <TrackCard key={track.track.id} trackData={track} />
@@ -110,6 +150,7 @@ export const Playlist = () => {
             }
           </ul>
         </div>)}
+      {(!isError && isFetchingMore && <p>Fetching more songs</p>)}
       {(!isError && isLoading && <Spinner />)}
     </>
   );

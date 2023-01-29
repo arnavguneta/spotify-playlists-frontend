@@ -3,7 +3,7 @@ import styles from './Disclaimer.module.css';
 
 export const Disclaimer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id='footer'>
       <span>
         Spotify Stats is in no way affiliated with Spotify AB
       </span>
