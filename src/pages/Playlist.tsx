@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTitle } from '../hooks/useTitle';
-import { TrackItem, TrackResponse } from '../common/types';
+import { Response, TrackItem } from '../common/types';
 // import { useUserContext } from '../hooks/useUserContext';
 
 import styles from './Playlist.module.css';
@@ -9,6 +9,9 @@ import { MainTitle } from '../components/UI/Text/MainTitle';
 import { Search } from '@mui/icons-material';
 import Spinner from '../components/Spinner/Spinner';
 import { Input } from '../components/UI/Form/Input';
+// import Loader from '../components/Spinner/PulseLoader';
+import { useInfiniteScroll } from '../hooks/useInfiniteScroll';
+import { Link } from 'react-router-dom';
 
 const TrackCard = ({ trackData }: { trackData: TrackItem }) => {
   const { track } = trackData;
@@ -35,58 +38,23 @@ const TrackCard = ({ trackData }: { trackData: TrackItem }) => {
 };
 
 export const Playlist = () => {
-  // const userState = useUserContext();
   const { playlistId } = useParams();
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
   const [filter, setFilter] = useState('');
   const [playlistName, setPlaylistName] = useState('');
   const [tracksData, setTracksData] = useState<Array<TrackItem>>([]);
-  // const [offset, setOffset] = useState(0);
-  const [isFetchingMore, setFetchingMore] = useState(false);
-  let offset = 0;
-  let fetching = false;
+  const endpoint = `spotify/playlists/${playlistId}/tracks`;
+
+  function updateData(data: Array<TrackItem>) {
+    setTracksData(prevState => [...prevState, ...data]);
+  }
+  useInfiniteScroll<TrackItem>(updateData, endpoint);
   useTitle('Spotify Stats | Playlist');
 
-  function isInViewport(e: Element) {
-    const rect = e.getBoundingClientRect();
-    return (
-      Math.floor(rect.bottom) - 200 <=
-      (window.innerHeight || document.documentElement.clientHeight)
-    );
-  }
-
-  function handleScroll() {
-    const footer = document.querySelector('#footer');
-    if (!footer || !isInViewport(footer)|| isFetchingMore || fetching) return;
-    setFetchingMore(true);
-    fetching = true;
-    // eslint-disable-next-line max-len
-    fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/playlists/${playlistId}/tracks?offset=${offset}`,
-      { credentials: 'include' })
-      .then((response) => {
-        if (!response.ok) {
-          fetching = false;
-          setFetchingMore(false);
-        }
-        return response.json();
-      })
-      .then((result: TrackResponse) => {
-        setFetchingMore(false);
-        setTracksData(prevState => [...prevState, ...result.items]);
-        offset = result.offset;
-        fetching = false;
-      }).catch((error) => console.error(error));
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, true);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   useEffect(() => {
     // eslint-disable-next-line max-len
-    fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/playlists/${playlistId}/tracks`,
+    fetch(`${process.env.REACT_APP_BACKEND_API}/${endpoint}`,
       { credentials: 'include' })
       .then((response) => {
         if (!response.ok) {
@@ -95,10 +63,9 @@ export const Playlist = () => {
         }
         return response.json();
       })
-      .then((result: TrackResponse) => {
+      .then((result: Response<TrackItem>) => {
         setLoading(false);
         setTracksData(result.items);
-        offset = result.offset;
       }).catch((error) => console.error(error));
     // eslint-disable-next-line max-len
     fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/playlists/${playlistId}`,
@@ -126,7 +93,8 @@ export const Playlist = () => {
       {(isError &&
         <p id={styles.alt}>
           No tracks found in this playlist<br />
-          If this playlist is private, please login to view details
+          If this playlist is private,
+          please <Link to='/login' id={styles.link}>login</Link> to view details
         </p>)
       }
       {(!isLoading && !isError
@@ -150,7 +118,7 @@ export const Playlist = () => {
             }
           </ul>
         </div>)}
-      {(!isError && isFetchingMore && <p>Fetching more songs</p>)}
+      {/* {(!isError && isFetching && <Loader />)} */}
       {(!isError && isLoading && <Spinner />)}
     </>
   );

@@ -85,8 +85,8 @@ export interface TrackItem {
   track: Track;
 }
 
-export interface TrackResponse {
-  items: Array<TrackItem>,
+export interface Response<T> {
+  items: Array<T>,
   offset: number
 }
 

@@ -110,6 +110,10 @@
   color: var(--secondary-text-color);
 }
 
+#link {
+  text-decoration: underline;
+}
+
 @media (min-width: 700px) {
   .card_items {
     min-width: 225px;

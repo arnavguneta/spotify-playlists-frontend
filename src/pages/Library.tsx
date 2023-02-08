@@ -4,13 +4,14 @@ import { useRedirect } from '../hooks/useRedirect';
 import { useUserContext } from '../hooks/useUserContext';
 import { useEffect, useState } from 'react';
 import Spinner from '../components/Spinner/Spinner';
-import { PlaylistItem } from '../common/types';
+import { PlaylistItem, Response } from '../common/types';
 
 import styles from './Library.module.css';
 import { MainTitle } from '../components/UI/Text/MainTitle';
 import { useNavigate } from 'react-router-dom';
 import { Input } from '../components/UI/Form/Input';
 import { Search } from '@mui/icons-material';
+import { useInfiniteScroll } from '../hooks/useInfiniteScroll';
 
 const PlaylistCard = ({ playlist }: { playlist: PlaylistItem }) => {
   const navigate = useNavigate();
@@ -38,12 +39,17 @@ const Library = () => {
   const [isLoading, setLoading] = useState(true);
   const [playlistsData, setPlaylistsData] = useState<Array<PlaylistItem>>([]);
   const [filter, setFilter] = useState('');
+  const endpoint = 'spotify/me/playlists';
 
+  function updateData(data: Array<PlaylistItem>) {
+    setPlaylistsData(prevState => [...prevState, ...data]);
+  }
+  useInfiniteScroll<PlaylistItem>(updateData, endpoint);
   useTitle('Spotify Stats | Library');
   useRedirect(!userState?.isAuth, '/login?redirect=profile', false);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_API}/spotify/me/playlists`,
+    fetch(`${process.env.REACT_APP_BACKEND_API}/${endpoint}`,
       { credentials: 'include' })
       .then((response) => {
         if (!response.ok) {
@@ -51,9 +57,9 @@ const Library = () => {
         }
         return response.json();
       })
-      .then((result: Array<PlaylistItem>) => {
+      .then((result: Response<PlaylistItem>) => {
         setLoading(false);
-        setPlaylistsData(result);
+        setPlaylistsData(result.items);
       }).catch((error) => console.error(error));
   }, []);
 

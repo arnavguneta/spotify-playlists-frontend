@@ -5,3 +5,9 @@
   height: 25rem;
   overflow: hidden;
 }
+
+.loader {
+  height: 4rem;
+  overflow: hidden;
+  margin-left: 1rem;
+}
